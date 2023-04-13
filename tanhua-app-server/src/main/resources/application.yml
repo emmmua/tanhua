@@ -1,0 +1,66 @@
+#服务端口
+server:
+  port: 18080
+spring:
+  application:
+    name: tanhua-app-server
+  rabbitmq:
+    host: 192.168.136.160
+    port: 5672
+    username: guest
+    password: guest
+  redis:  #redis配置
+    port: 6379
+    host: 192.168.136.160
+  cloud:  #nacos配置
+    nacos:
+      discovery:
+        server-addr: 192.168.136.160:8848
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+
+dubbo:  #dubbo配置
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    check: false
+
+tanhua:
+  sms:
+    signName: Fivk博客
+    templateCode: SMS_246680482
+    accessKey: LTAI5tFW2tk1WchhSQ9Xtcju
+    secret: YvEU56WNMl0Pfhd91WkZRN19mGFPID
+  oss:
+    accessKey: LTAI5tRZZS2R4yYN6u9uopip
+    secret: USkZdc9p65kIR5asjTcKQ7UObtU470
+    endpoint: oss-cn-chengdu.aliyuncs.com
+    bucketName: tanhua-fivk
+    url: https://tanhua-fivk.oss-cn-chengdu.aliyuncs.com/
+  aip:
+    appId: 27426386
+    apiKey: lrzafKnkr6WUYdlQBxTWx3pu
+    secretKey: 0Ben7FB9Yo9OoUGTTL7wxdzSnj1WhL1u
+  huanxin:
+    appkey: 1102230301173012#fivk-tanhua
+    clientId: YXA6Nd5pE1bgRUSFcUGCwJxR1w
+    clientSecret: YXA6AR_WqXqAi0Zoji6KpIp6NDAt9e0
+  default:
+    recommend:
+      users: 2,3,8,10,18,20,24,29,27,32,36,37,56,64,75,88
+
+# ===================================================================
+# 分布式文件系统FDFS配置
+# ===================================================================
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  #缩略图生成参数
+  thumb-image:
+    width: 150
+    height: 150
+  #TrackerList参数,支持多个
+  tracker-list: 192.168.136.160:22122
+  web-server-url: http://192.168.136.160:8888/
